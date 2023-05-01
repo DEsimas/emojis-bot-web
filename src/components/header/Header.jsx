@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './PcHeader.scss';
+import './MobileHeader.scss';
 
 export default function Header() {
   return (

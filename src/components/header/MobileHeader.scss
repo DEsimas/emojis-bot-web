@@ -1,0 +1,12 @@
+@media (max-width: 950px) {
+  .header {
+
+    &-pc {
+      display: none;
+    }
+
+    &-mobile {
+      display: block;
+    }
+  }
+}
