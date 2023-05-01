@@ -2,6 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
+import Home from './pages/home/Home.jsx';
 import Images from './pages/images/images.jsx';
 import Header from './components/header/Header.jsx';
 
@@ -14,7 +15,7 @@ root.render(
     <Router>
       <Header />
       <Routes>
-        <Route path='/home' element={<h1>База</h1>} />
+        <Route path='/home' element={<Home />} />
         <Route path='/images' element={<Images />} />
         <Route path='/calculator' element={<h1>Кулятор</h1>} />
         <Route

@@ -50,6 +50,7 @@
           text-decoration: none;
           border-radius: 10px;
           transition: background-color 0.5s;
+          text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 
           &:hover {
             background-color: $discord-dark-color;

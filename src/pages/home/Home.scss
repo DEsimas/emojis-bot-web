@@ -1,0 +1,40 @@
+@import './../../variables.scss';
+
+.home {
+  margin: 20px 200px;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 500;
+
+  a {
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    color: $accent-text-color;
+    text-decoration: none;
+    transition: color 250ms;
+
+    &:hover {
+      color: $accent-text-hover-color;
+    }
+  }
+
+  &-link {
+    padding: 20px;
+    background-color: $discord-color;
+    color: white !important;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.5s;
+
+    &:hover {
+      background-color: $discord-dark-color;
+    }
+  }
+}
+
+@media (max-width: 950px) {
+  .home {
+    margin: 20px 5px;
+    font-size: 24px;
+    font-weight: 400;
+  }
+}
