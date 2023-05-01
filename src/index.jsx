@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 
 import Header from './components/header/Header.jsx';
 
+import './index.scss';
+
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(

@@ -1,0 +1,90 @@
+@import './../../variables.scss';
+
+.header {
+  width: 100%;
+  height: 100px;
+  background-color: $secondary-color;
+
+  &-pc {
+    padding: 0 10px;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10%;
+
+    &-left {
+      height: 100%;
+      display: grid;
+      grid-template-columns: 184px 1fr;
+      gap: 10px;
+
+      &-link {
+
+        &-route {
+          position: relative;
+          top: 25%;
+          font-weight: 900;
+          text-decoration: none;
+          font-size: 40px;
+          color: $accent-text-color;
+          -webkit-text-stroke-width: 1px;
+          -webkit-text-stroke-color: black;
+          transition: -webkit-text-stroke-color 0.5s;
+
+          &:hover {
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: white;
+          }
+        }
+      }
+
+      &-button {
+
+        &-link {
+          position: relative;
+          top: 37%;
+          font-size: 20px;
+          padding: 10px;
+          background-color: $discord-color;
+          color: white;
+          text-decoration: none;
+          border-radius: 10px;
+          transition: background-color 0.5s;
+
+          &:hover {
+            background-color: $discord-dark-color;
+          }
+        }
+      }
+    }
+
+    &-right {
+      height: 100%;
+      float: right;
+    }
+
+    &-right {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      font-size: 20px;
+      text-align: center;
+      align-items: center;
+
+      &-element {
+        text-decoration: none;
+        color: white;
+        text-align: center;
+        transition: color 0.25s;
+
+        &:hover {
+          color: $dark-white;
+        }
+
+        &:active {
+          color: white;
+        }
+      }
+    }
+  }
+}
