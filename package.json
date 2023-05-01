@@ -1,0 +1,10 @@
+{
+  "name": "emojis-bot-web",
+  "version": "1.0.0",
+  "description": "Advertising website for emojis bot",
+  "main": "./src/index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
