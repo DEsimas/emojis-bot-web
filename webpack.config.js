@@ -1,16 +1,11 @@
 require('dotenv').config();
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
 
 module.exports = {
     entry: './src/index.js',
     target: 'web',
-    mode: 'production',
-    performance: {
-        maxEntrypointSize: 512000,
-        maxAssetSize: 512000
-    },
+    mode: process.env.MODE,
     module: {
         rules: [
             {
@@ -19,7 +14,7 @@ module.exports = {
                 use: {
                     loader: "babel-loader",
                     options: {
-                        presets: ["@babel/preset-env", "@babel/preset-react"],
+                        presets: ["@babel/preset-react"],
                     },
                 },
             },
@@ -43,12 +38,6 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html',
             favicon: './public/favicon.ico'
-        }),
-        new webpack.DefinePlugin({
-            'process.env': {
-                'REACT_APP_ACCENT_TESTER_KEY': `'${process.env.REACT_APP_ACCENT_TESTER_KEY}'`,
-                'REACT_APP_SERVER_URL': `'${process.env.REACT_APP_SERVER_URL}'`
-            }
         })
     ],
     output: {
