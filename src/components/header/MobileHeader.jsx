@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import './MobileHeader.scss';
 
 import Arrow from './../../../public/arrow.png';
 
 export default function MobileHeader() {
-  const [page, setPage] = useState('Главная');
+  const endpoints = {
+    '/home': 'Главная',
+    '/images': 'Как оно выглядит?',
+    '/calculator': 'Калькулятор'
+  };
+
+  const location = useLocation();
+  const [page, setPage] = useState(endpoints[location.pathname]);
   const [collapsed, setCollapsed] = useState(true);
 
   useEffect(() => {
@@ -15,10 +22,9 @@ export default function MobileHeader() {
 
   return (
     <div className='header-mobile'>
-      <div className='header-mobile-value'>
+      <div onClick={() => setCollapsed(!collapsed)} className='header-mobile-value'>
         <h2 className='header-mobile-value-header'>{page}</h2>
         <img
-          onClick={() => setCollapsed(!collapsed)}
           className='header-mobile-value-arrow'
           src={Arrow}
           style={{
