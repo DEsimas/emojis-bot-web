@@ -3,8 +3,8 @@
   flex-direction: row;
 
   &-window {
-    width: 1000px;
-    height: 542px;
+    width: 900px;
+    height: 488px;
     overflow: hidden;
 
     &-container {
@@ -18,7 +18,7 @@
   &-left {
     display: flex;
     align-items: center;
-    height: 542px;
+    height: 488px;
     border-radius: 50px;
     transition: background-color 200ms;
 
@@ -30,7 +30,7 @@
   &-right {
     display: flex;
     align-items: center;
-    height: 542px;
+    height: 488px;
     border-radius: 50px;
     transition: background-color 200ms;
 

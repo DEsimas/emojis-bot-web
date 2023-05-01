@@ -1,19 +1,24 @@
 import React, { useEffect, useState, Children, cloneElement } from 'react';
 
-import './Slider.scss';
+import './HorizontalSlider.scss';
+import './VerticalSlider.scss';
 
 import arrow from './../../../public/arrow-black.png'
 
 export default function Slider({ children }) {
-  const width = 1000;
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 950);
   const [images, setImages] = useState([]);
   const [offset, setOffset] = useState(0);
+  const width = isMobile ? 162.5 : 900;
 
   useEffect(() => {
+    window.onresize = () => setIsMobile(window.innerWidth < 950);
     setImages(Children.map(children, child => (
       cloneElement(child, {
         style: {
-          height: '100%',
+          maxheight: '100%',
+          minheight: '100%',
           minwidth: width.toString() + 'px',
           maxwidth: width.toString() + 'px'
         }
@@ -30,14 +35,14 @@ export default function Slider({ children }) {
           src={arrow}
           style={{
             height: '50px',
-            transform: 'rotate(180deg)'
+            transform: isMobile ? 'rotate(-90deg)' : 'rotate(180deg)'
           }} />
       </div>
       <div className='slider-window'>
         <div
           className='slider-window-container'
           style={{
-            transform: `translateX(${(-width * offset).toString()}px)`
+            transform: isMobile ? `translateY(${(-width * offset).toString()}px)` : `translateX(${(-width * offset).toString()}px)`
           }}>
           {images}
         </div>
@@ -48,7 +53,8 @@ export default function Slider({ children }) {
         <img
           src={arrow}
           style={{
-            height: '50px'
+            height: '50px',
+            transform: isMobile ? 'rotate(90deg)' : 'rotate(0)'
           }} />
       </div>
     </div>
