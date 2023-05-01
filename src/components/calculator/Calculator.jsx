@@ -4,41 +4,58 @@ import './Calculator.scss';
 import CalculatorButton from './CalculatorButton.jsx';
 
 const ACTIONS = {
-  ADD_DIGIT: 'add-digit',
-  CHOOSE_OPERATION: 'choose-operation',
-  ClEAR: 'clear',
-  DELETE_DIGIT: 'delete-digit',
-  EVALUATE: 'evaluate'
+  ADD_DIGIT: 'add-digit', //нажата кнопка 0-9 или .
+  CHOOSE_OPERATION: 'choose-operation', //нажате кнопка + - * /
+  ClEAR: 'clear', // нажате кнопка AC
+  DELETE_DIGIT: 'delete-digit', // нажата кнопка DEL
+  EVALUATE: 'evaluate' // нажата кнопка =
 }
+
+/*state: {
+  current: string // текущее число в калькуляторе
+  previous: string // число, которое былло введено до нажатия кнопки операции
+  operation: string // операция
+  overwrite: boolean // флаг, true - только что было нажато равно и число из current при нажатии след. кнопки
+                     // нужно полностью стереть (не дописывать новые цифры), false - штатная работа
+}*/
 
 function reducer(state, action) {
   switch (action.type) {
     case ACTIONS.ADD_DIGIT:
+      //если число было вычислено, стереть его и начать писать новое
       if (state.overwrite) return {
         ...state,
         current: action.payload,
         overwrite: false
       }
+      //если чилсо ноль, не дать писать больше нулей
       if (action.payload === '0' && state.current === '0') return state;
+      //если в числе есть точка, не дать поставить ещё
       if (action.payload === '.' && state.current.includes('.')) return state;
+      //базовый случай: дописать в конец текущего числа цифру
       return {
         ...state,
         current: `${state.current || ''}${action.payload}`
       }
     case ACTIONS.ClEAR:
+      //очистить стейт
       return {}
     case ACTIONS.CHOOSE_OPERATION:
+      //если пользователь не ввёл никакое число, не устанавливать операцию
       if (state.current == null && state.previous == null) return state;
+      //если текущее число не сущ. меняем операцию
       if (state.current == null) return {
         ...state,
         operation: action.payload
       }
+      //если прошлого числа не сущ. устанавливаем на его место текущее и ставим операцию
       if (state.previous == null) return {
         ...state,
         operation: action.payload,
         previous: state.current,
         current: null
       }
+      //если текущее число, предыдущее число и операция установлена, произвести вычисление и поставить новую операцию
       return {
         ...state,
         previous: evaluate(state),
@@ -46,6 +63,7 @@ function reducer(state, action) {
         operation: action.payload
       }
     case ACTIONS.EVALUATE:
+      //если какого-то компонента вычислений не хватает не вычислять
       if (state.current == null || state.previous == null || state.operation == null) return state;
       return {
         ...state,
@@ -55,16 +73,20 @@ function reducer(state, action) {
         overwrite: true
       }
     case ACTIONS.DELETE_DIGIT:
+      //если только что было произведено вычисление, стереть число и установить флаг в false
       if (state.overwrite) return {
         ...state,
         overwrite: false,
         current: null
       }
+      //если нет числа, то не надо и стирать цифру
       if (state.current == null) return state;
+      //если в числе только одна цифра поставить его в null
       if (state.current?.length === 1) return {
         ...state,
         current: null
       }
+      //убрать последнюю цифру из числа
       return {
         state,
         current: state.current.slice(0, -1)
@@ -72,6 +94,7 @@ function reducer(state, action) {
   }
 }
 
+//получить результат вычислений, основываясь на стейте
 function evaluate({ current, previous, operation }) {
   const prev = parseFloat(previous);
   const curr = parseFloat(current);
@@ -91,6 +114,8 @@ function evaluate({ current, previous, operation }) {
 export default function Calculator() {
   const [{ current, previous, operation }, dispatch] = useReducer(reducer, {})
 
+  /*Калькулятор состоит из кучи кнопок, каждая - компонент CalculatorButton.
+  Он в зависимости от пропсов вызывает производит нужный action с значением кнопки*/
   return (
     <div className='calculator-grid'>
       <div className='calculator-grid-output'>
