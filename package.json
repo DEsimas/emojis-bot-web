@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "Advertising website for emojis bot",
   "main": "./src/index.jsx",
-  "scripts": {},
+  "scripts": {
+    "start": "npm run build && webpack serve",
+    "build": "webpack build"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
