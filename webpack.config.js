@@ -54,4 +54,8 @@ module.exports = {
     open: true,
     hot: true
   },
+  performance: {
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
+  }
 }
