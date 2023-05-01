@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Home from './pages/home/Home.jsx';
 import Images from './pages/images/images.jsx';
 import Header from './components/header/Header.jsx';
+import Calculator from './pages/calculator/Calculator.jsx';
 
 import './index.scss';
 
@@ -17,7 +18,7 @@ root.render(
       <Routes>
         <Route path='/home' element={<Home />} />
         <Route path='/images' element={<Images />} />
-        <Route path='/calculator' element={<h1>Кулятор</h1>} />
+        <Route path='/calculator' element={<Calculator />} />
         <Route
           path="*"
           element={<Navigate to="/home" replace />}

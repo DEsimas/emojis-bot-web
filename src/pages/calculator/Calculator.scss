@@ -1,0 +1,12 @@
+.calculator {
+  text-align: center;
+
+  &-header {
+    font-size: 32px;
+  }
+
+  &-calculator {
+    display: flex;
+    justify-content: center;
+  }
+}
