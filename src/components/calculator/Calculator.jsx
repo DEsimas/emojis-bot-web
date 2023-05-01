@@ -115,7 +115,7 @@ export default function Calculator() {
   const [{ current, previous, operation }, dispatch] = useReducer(reducer, {})
 
   /*Калькулятор состоит из кучи кнопок, каждая - компонент CalculatorButton.
-  Он в зависимости от пропсов вызывает производит нужный action с значением кнопки*/
+  Он в зависимости от пропсов производит нужный action с значением кнопки*/
   return (
     <div className='calculator-grid'>
       <div className='calculator-grid-output'>
