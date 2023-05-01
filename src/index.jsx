@@ -2,12 +2,14 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
+import Header from './components/header/Header.jsx';
+
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Router>
-      <h1>Хедер</h1>
+      <Header />
       <Routes>
         <Route path='/home' element={<h1>База</h1>} />
         <Route path='/images' element={<h1>Сладер</h1>} />
