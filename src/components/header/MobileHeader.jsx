@@ -19,7 +19,7 @@ export default function MobileHeader() {
         <h2 className='header-mobile-value-header'>{page}</h2>
         <img
           onClick={() => setCollapsed(!collapsed)}
-          className='header-mobile-arrow'
+          className='header-mobile-value-arrow'
           src={Arrow}
           style={{
             transform: collapsed ? 'rotate(180deg)' : 'rotate(90deg)',
@@ -29,7 +29,7 @@ export default function MobileHeader() {
       </div>
       <div
         className='header-mobile-list'
-        style={{ display: collapsed ? 'none' : 'block' }}>
+        style={{ display: collapsed ? 'none' : 'grid' }}>
         <Link onClick={() => setPage('Главная')} className='header-mobile-list-element' to='/home'>
           <span className='header-mobile-list-element-span'>Главная</span>
         </Link>

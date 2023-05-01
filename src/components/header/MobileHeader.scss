@@ -1,5 +1,8 @@
+@import './../../variables.scss';
+
 @media (max-width: 950px) {
   .header {
+    height: auto;
 
     &-pc {
       display: none;
@@ -7,6 +10,53 @@
 
     &-mobile {
       display: block;
+
+      &-value {
+        text-align: center;
+        padding: 10px;
+
+        &-header {
+          margin: 0;
+          padding: 0;
+          display: inline;
+          font-size: 32px;
+          font-weight: 500;
+          color: white;
+          margin-right: 5px;
+        }
+
+        &-arrow {
+          height: 35px;
+          translate: 0 5px;
+        }
+      }
+
+      &-list {
+        text-align: center;
+
+        &-element {
+          text-decoration: none;
+          color: white;
+          font-size: 20px;
+          border-top: white 2px solid;
+          padding: 15px;
+        }
+
+        &-button {
+
+          &-link {
+            font-size: 20px;
+            padding: 10px;
+            background-color: $discord-color;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            display: block;
+            margin: 5px 60px;
+            margin-bottom: 20px;
+          }
+        }
+      }
     }
   }
 }
