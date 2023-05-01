@@ -2,7 +2,7 @@
   "name": "emojis-bot-web",
   "version": "1.0.0",
   "description": "Advertising website for emojis bot",
-  "main": "./src/index.js",
+  "main": "./src/index.jsx",
   "scripts": {},
   "keywords": [],
   "author": "",
