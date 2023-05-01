@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 import Home from './pages/home/Home.jsx';
-import Images from './pages/images/images.jsx';
+import Images from './pages/images/Images.jsx';
 import Header from './components/header/Header.jsx';
 import Calculator from './pages/calculator/Calculator.jsx';
 
