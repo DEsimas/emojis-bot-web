@@ -22,6 +22,7 @@ const ACTIONS = {
 function reducer(state, action) {
   switch (action.type) {
     case ACTIONS.ADD_DIGIT:
+      if (!state.current && action.payload === '.') return state;
       //если число было вычислено, стереть его и начать писать новое
       if (state.overwrite) return {
         ...state,

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Advertising website for emojis bot",
   "main": "./src/index.jsx",
+  "homepage": "https://desimas.github.io/emojis-bot-web/",
   "scripts": {
     "start": "npm run build && webpack serve",
     "build": "webpack build",
