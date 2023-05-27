@@ -5,7 +5,9 @@
   "main": "./src/index.jsx",
   "scripts": {
     "start": "npm run build && webpack serve",
-    "build": "webpack build"
+    "build": "webpack build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +18,7 @@
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
     "file-loader": "^6.2.0",
+    "gh-pages": "^5.0.0",
     "html-webpack-plugin": "^5.5.1",
     "node-sass": "^8.0.0",
     "sass-loader": "^13.2.2",
