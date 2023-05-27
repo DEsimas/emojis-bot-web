@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 
 import Home from './pages/home/Home.jsx';
 import Images from './pages/images/Images.jsx';
+import Footer from './components/footer/Footer.jsx';
 import Header from './components/header/Header.jsx';
 import Calculator from './pages/calculator/Calculator.jsx';
 
@@ -24,6 +25,7 @@ root.render(
           element={<Navigate to="/home" replace />}
         />
       </Routes>
+      <Footer />
     </Router>
   </React.StrictMode>
 );

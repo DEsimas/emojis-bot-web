@@ -1,0 +1,29 @@
+@import './../../variables.scss';
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  border-top: solid 1px;
+  background: rgb(95, 95, 95);
+  width: 100%;
+  padding-top: 10px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  z-index: 99;
+  color: white;
+
+  &-left {
+    margin-left: 20px;
+    text-align: left;
+  }
+
+  &-right {
+    margin-right: 20px;
+    text-align: right;
+  }
+
+  a {
+    color: $accent-text-color;
+  }
+}
